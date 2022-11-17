@@ -6,5 +6,6 @@ public class HelperTestDrive {
 
         // Test getBattleshipLocations() method
         helper.getBattleshipLocations(3);
+        helper.getBattleshipLocations(3);
     }
 }

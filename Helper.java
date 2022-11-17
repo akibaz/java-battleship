@@ -10,6 +10,7 @@ public class Helper {
     private static final int HORIZONTAL_INCREMENT = 1;
     private static final int VERTICAL_INCREMENT = 7;
     private Random random = new Random();
+    private int[] grid = new int[GRID_SIZE];
 
     public void getBattleshipLocations(int size) {
         //* Get location of ships cells on a grid, 0-48
@@ -35,13 +36,32 @@ public class Helper {
             // System.out.println(Arrays.toString(locations));
 
             if (checkLocationsAreInGridBoundaries(locations, increment)){
-                success = true;
+                success = checkAvailableCoords(locations);
+                if (success) {
+                    populateGrid(locations);
+                }
             }
-            System.out.println(Arrays.toString(locations));
-            
+            System.out.println("Locations are " + Arrays.toString(locations));
+            System.out.println("Grid looks like " + Arrays.toString(grid));
+
         }
 
 
+    }
+
+    private void populateGrid(int[] locations) {
+        for (int loc : locations) {
+            grid[loc] = 1;
+        }
+    }
+
+    private boolean checkAvailableCoords(int[] locations) {
+        for (int loc : locations) {
+            if (grid[loc] != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private boolean checkLocationsAreInGridBoundaries(int[] locations, int increment) {
