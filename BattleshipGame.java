@@ -17,9 +17,28 @@ public class BattleshipGame {
         two.setName("hacqui");
         three.setName("poniez");
         battleships.add(one);
+        battleships.add(two);
+        battleships.add(three);
+        ArrayList<String> locations;
 
-        ArrayList<String> locations = helper.getBattleshipLocations(3);
-        one.setShipLocations(null);
+        System.out.println();
+        System.out.println("Welcome to Battleships!");
+        System.out.println();
+        System.out.println("The goal is to sink all three battleships.");
+        System.out.println("The fewer guesess, the better.");
+        System.out.println("The ships are named: ");
+        int counter = 0;
+        for (Battleship battleship : battleships) {
+            System.out.println("\t\t" + ++counter + ") " + battleship.getName());
+        }
+        System.out.println();
+        System.out.println();
+
+        for (Battleship battleship : battleships) {
+            locations = helper.getBattleshipLocations(3);
+            battleship.setShipLocations(locations);
+            System.out.println("Battleship " + battleship.getName() + " location is " + battleship.getShipLocations());
+        }
 
         
     }
