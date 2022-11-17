@@ -42,14 +42,14 @@ public class Helper {
                     populateGrid(locations);
                 }
             }
-            System.out.println("Locations are " + Arrays.toString(locations));
+            // System.out.println("Locations are " + Arrays.toString(locations));
             // System.out.println("Grid looks like " + Arrays.toString(grid));
 
         }
 
         // Convert numeric locations to alphaNumeric
         ArrayList<String> alphaNumLocations = getAlphaLoc(locations, increment);
-        System.out.println("Alpha locations are " + alphaNumLocations);
+        // System.out.println("Alpha locations are " + alphaNumLocations);
         return alphaNumLocations;
     }
 
@@ -87,13 +87,20 @@ public class Helper {
 
     private boolean checkLocationsAreInGridBoundaries(int[] locations, int increment) {
         int finalLocation = locations[locations.length - 1];
-        if (finalLocation >= GRID_SIZE) {
-            return false;
+        // System.out.println("FinalLocation is " + finalLocation);
+        if ((finalLocation < GRID_SIZE) && 
+            (increment == VERTICAL_INCREMENT)) {
+            // System.out.println("Check 1");
+            return true;
         }
-        else if (increment == HORIZONTAL_INCREMENT && checkRow(locations[0]) == checkRow(finalLocation)) {
+        else if ((finalLocation < GRID_SIZE) &&
+                 (increment == HORIZONTAL_INCREMENT) && 
+                 (checkRow(locations[0]) == checkRow(finalLocation))) {
+            // System.out.println("Check 2");
             return true;
         } else {
-            return true;
+            // System.out.println("Check 3");
+            return false;
         }
     }
 

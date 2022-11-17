@@ -5,7 +5,11 @@ public class HelperTestDrive {
         Helper helper = new Helper();
 
         // Test getBattleshipLocations() method
-        helper.getBattleshipLocations(3);
-        helper.getBattleshipLocations(3);
+        ArrayList<String> test1 = new ArrayList<String>();
+        ArrayList<String> test2 = new ArrayList<String>();
+        test1 = helper.getBattleshipLocations(3);
+        test2 = helper.getBattleshipLocations(3);
+        System.out.println("Battleship1 locations " + test1);
+        System.out.println("Battleship2 locations " + test2);
     }
 }
