@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Helper {
     private static final int GRID_LENGTH = 7;
@@ -12,6 +13,12 @@ public class Helper {
     private Random random = new Random();
     private int[] grid = new int[GRID_SIZE];
     private static final String ALPHA = "abcdefgh";
+    private static Scanner scanner = new Scanner(System.in);
+
+    public String getUserInput() {
+        System.out.print("What is your guess:   ");
+        return scanner.nextLine().toLowerCase();
+    }
 
     public ArrayList<String> getBattleshipLocations(int size) {
         //* Get location of ships cells on a grid, 0-48

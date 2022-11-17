@@ -11,5 +11,9 @@ public class HelperTestDrive {
         test2 = helper.getBattleshipLocations(3);
         System.out.println("Battleship1 locations " + test1);
         System.out.println("Battleship2 locations " + test2);
+
+        // Test getUserInput() method
+        String result = helper.getUserInput();
+        System.out.println(result);
     }
 }
