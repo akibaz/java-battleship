@@ -31,7 +31,7 @@ public class Battleship {
             result = "kill";
             System.out.println("You destroyed " + name + ".");
         }
-        System.out.println(result);
+        // System.out.println(result);
         return result;
     }
 }

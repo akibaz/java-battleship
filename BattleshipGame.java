@@ -4,12 +4,48 @@ import java.util.ArrayList;
 public class BattleshipGame {
     private static Helper helper = new Helper();
     private static ArrayList<Battleship> battleships = new ArrayList<Battleship>();
+    private static int numOfGuesses = 0;
 
     public static void main(String[] args) {
         setUpGame();
+        startPlaying();
     }
 
-    public static void setUpGame() {
+    private static void startPlaying() {
+        boolean isFinished = false;
+        String userGuess;
+        String result = "miss";
+        int index;
+
+        while (!isFinished) {
+            numOfGuesses++;
+            userGuess = helper.getUserInput();
+            for (Battleship battleship : battleships) {
+                result = battleship.checkYourself(userGuess);
+                if (result.equals("hit")) {
+                    System.out.println("hit");
+                    break;
+                }
+                else if (result.equals("kill")) {
+                    index = battleships.indexOf(battleship);
+                    battleships.remove(index);
+                    break;
+                }
+            }
+            if (result.equals("miss")) {
+                System.out.println("miss");
+            }
+            if (battleships.isEmpty()) {
+                isFinished = true;
+            }
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("You destroyed all battleships!");
+        System.out.println("It took you " + numOfGuesses + " guesses.");
+    }
+
+    private static void setUpGame() {
         Battleship one = new Battleship();
         Battleship two = new Battleship();
         Battleship three = new Battleship();
