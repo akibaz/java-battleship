@@ -11,8 +11,9 @@ public class Helper {
     private static final int VERTICAL_INCREMENT = 7;
     private Random random = new Random();
     private int[] grid = new int[GRID_SIZE];
+    private static final String ALPHA = "abcdefgh";
 
-    public void getBattleshipLocations(int size) {
+    public ArrayList<String> getBattleshipLocations(int size) {
         //* Get location of ships cells on a grid, 0-48
         int[] locations = new int[size];
         boolean success = false;
@@ -42,12 +43,32 @@ public class Helper {
                 }
             }
             System.out.println("Locations are " + Arrays.toString(locations));
-            System.out.println("Grid looks like " + Arrays.toString(grid));
+            // System.out.println("Grid looks like " + Arrays.toString(grid));
 
         }
 
-
+        // Convert numeric locations to alphaNumeric
+        ArrayList<String> alphaNumLocations = getAlphaLoc(locations, increment);
+        System.out.println("Alpha locations are " + alphaNumLocations);
+        return alphaNumLocations;
     }
+
+
+    private ArrayList<String> getAlphaLoc(int[] locations, int increment) {
+        // Convert from numerical to alphaNumerical, ex. 9 to b1, 23 to c3, etc.
+        ArrayList<String> resultingList = new ArrayList<String>();
+        int row;
+        String rowConverted;
+        int column;
+        for (int loc : locations) {
+            row = checkRow(loc);
+            rowConverted = ALPHA.substring(row, row + 1);
+            column = loc % GRID_LENGTH;
+            resultingList.add(rowConverted + column);
+        }
+        return resultingList;
+    }
+
 
     private void populateGrid(int[] locations) {
         for (int loc : locations) {
