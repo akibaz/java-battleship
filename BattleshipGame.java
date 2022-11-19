@@ -85,9 +85,11 @@ public class BattleshipGame {
         System.out.println();
 
         for (Battleship battleship : battleships) {
+            // Create and insert locations
             locations = helper.getBattleshipLocations(3);
             battleship.setShipLocations(locations);
-            System.out.println("Battleship " + battleship.getName() + " location is " + battleship.getShipLocations());
+            // Print for easier testing
+            // System.out.println("Battleship " + battleship.getName() + " location is " + battleship.getShipLocations());
         }
 
         
