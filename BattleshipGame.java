@@ -9,6 +9,20 @@ public class BattleshipGame {
     public static void main(String[] args) {
         setUpGame();
         startPlaying();
+        finishGame();
+    }
+
+    private static void finishGame() {
+        System.out.println();
+        if (numOfGuesses < 15) {
+            System.out.println("Excellent sailor!");
+        } else if (numOfGuesses < 20) {
+            System.out.println("Not bad gunner.");
+        } else if(numOfGuesses < 25) {
+            System.out.println("Mediocre...");
+        } else {
+            System.out.println("More practice....");
+        }
     }
 
     private static void startPlaying() {
