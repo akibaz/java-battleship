@@ -70,7 +70,7 @@ public class Helper {
         for (int loc : locations) {
             row = checkRow(loc);
             rowConverted = ALPHA.substring(row, row + 1);
-            column = loc % GRID_LENGTH;
+            column = loc % GRID_LENGTH + 1;
             resultingList.add(rowConverted + column);
         }
         return resultingList;
