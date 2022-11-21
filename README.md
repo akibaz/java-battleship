@@ -1,6 +1,6 @@
 # java-battleship
 
-Battleship game based on modified Head First Java book example.
+CLI Battleship game based on modified Head First Java book example.
 
 
 ## Game description
@@ -48,7 +48,7 @@ If your guess is right and you have correct cell value, the ouptut will be
 ```
 hit
 ```
-if you guessed right all three battleships cells the output will be
+if you guessed right all three battleship cells the output will be
 ```
 You destroyed cabista.
 ```
